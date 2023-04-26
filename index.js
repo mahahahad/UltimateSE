@@ -9,7 +9,7 @@ function getCheckedRadioBtn(radioBtnsArr) {
 
 // Search the specified engine with the specified query
 // Engine must be present in the engineData array
-function search(engine, query, target = "blank") {
+function search(engine, query, target = "self") {
   let engineData = [
     {
       name: "google",
