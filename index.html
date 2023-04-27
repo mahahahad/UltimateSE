@@ -6,31 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark light" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>UltimateSE</title>
   </head>
   <body>
-    <fieldset class="engine">
-      <legend>Search Using:</legend>
+    <!-- Inspired by the Zorin os Firefox start page -->
+    <div class="engine-wrapper">
+      <fieldset class="engine">
+        <legend>Search Using:</legend>
 
-      <div class="engine__group">
-        <input
-          type="radio"
-          name="searchEngine"
-          id="engineGoogle"
-          value="Google"
-          checked="true"
-        />
-        <label for="engineGoogle">Google</label>
-      </div>
+        <div class="engines">
+          <div class="engine__group">
+            <input
+              type="radio"
+              name="searchEngine"
+              id="engineGoogle"
+              value="Google"
+              checked="true"
+              hidden
+            />
+            <label
+              for="engineGoogle"
+              class="engine__label active"
+              data-value="google"
+              >Google</label
+            >
+          </div>
 
-      <div class="engine__group">
-        <input type="radio" name="searchEngine" id="engineYT" value="YouTube" />
-        <label for="engineYT">YouTube</label>
-      </div>
-    </fieldset>
+          <div class="engine__group">
+            <input
+              type="radio"
+              name="searchEngine"
+              id="engineYT"
+              value="YouTube"
+              hidden
+            />
+            <label for="engineYT" class="engine__label" data-value="youtube"
+              >YouTube</label
+            >
+          </div>
+        </div>
+        <!-- This will be used when more engines are implemented -->
+        <!-- <div class="next-arrow">
+          <img
+            src="./assets/ChevronRight.svg"
+            alt="Chevron pointing right"
+            class="chevron-right"
+          />
+        </div> -->
+      </fieldset>
+    </div>
 
-    <input type="text" id="searchInput" />
-    <button id="searchBtn">Search</button>
+    <div class="query-container">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Type your query here..."
+      />
+      <button id="searchBtn">Search</button>
+    </div>
+    <footer>
+      <p>
+        All names used here are the property of their respective owners. This is
+        simply meant to provide an interface connecting these different
+        websites.
+      </p>
+    </footer>
     <script src="./index.js"></script>
   </body>
 </html>

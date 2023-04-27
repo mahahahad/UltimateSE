@@ -23,22 +23,35 @@ function search(engine, query, target = "self") {
   // Replace space char with a plus char
   let userQuery = query.split(" ").join("+");
 
-  // Compare provided engine with known engines and open a window with
-  // the required prefix added
+  // Compare provided engine with known engines and change location to
+  // that with the required prefix added
   engineData.forEach((eng) => {
     if (engine.toLowerCase() == eng.name)
-      window.open(eng.prefix + userQuery, target);
+      window.location.assign(eng.prefix + userQuery, target);
   });
 }
 
 const searchInput = document.querySelector("#searchInput");
 const searchBtn = document.querySelector("#searchBtn");
-const searchEngines = document.querySelectorAll("input[name='searchEngine']");
+const searchEngineRadioBtns = document.querySelectorAll(
+  "input[name='searchEngine']"
+);
+const searchEngineLabels = document.querySelectorAll(".engine__label");
+
+// Add event listener to each search engine label to check if it is active
+searchEngineRadioBtns.forEach((btn) => {
+  btn.onclick = () => {
+    searchEngineLabels.forEach((label) => {
+      label.classList.remove("active");
+      if (label.innerText == btn.value) label.classList.add("active");
+    });
+  };
+});
 
 // Use the values from the HTML elements to interact with the search
 // function
 function handleUserSearch() {
-  let userEngine = getCheckedRadioBtn(searchEngines).value;
+  let userEngine = getCheckedRadioBtn(searchEngineRadioBtns).value;
 
   search(userEngine, searchInput.value);
 }

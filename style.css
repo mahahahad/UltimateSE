@@ -1,0 +1,110 @@
+:root {
+  --fs-small: clamp(0.5rem, 2.5vmin, 0.85rem);
+  --fs-medium: clamp(0.75rem, 2.5vmin, 0.95rem);
+}
+
+*::before,
+*::after,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans";
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.engine-wrapper {
+  margin-bottom: clamp(1rem, 4vmin, 2rem);
+  overflow: hidden;
+}
+
+.engine {
+  border: none;
+  display: inline;
+  width: 100%;
+}
+
+.engines {
+  display: inline-flex;
+  gap: 0.5rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.engine legend {
+  font-size: var(--fs-small);
+}
+
+.engine__group {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.engine__label {
+  font-size: clamp(2rem, 10vmin, 4rem);
+  font-weight: bold;
+  opacity: 0.2;
+  transition: opacity 250ms ease;
+  cursor: pointer;
+}
+
+.active {
+  opacity: 1;
+}
+
+.next-arrow {
+  display: inline;
+  vertical-align: middle;
+}
+
+.chevron-right {
+  cursor: pointer;
+}
+
+.query-container {
+  width: clamp(293px, 75vmin, 587px);
+  display: flex;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#searchInput,
+#searchBtn {
+  padding: clamp(1rem, 3vmin, 2rem);
+  border: none;
+  font-size: var(--fs-medium);
+}
+
+#searchInput {
+  flex-grow: 2;
+}
+
+#searchBtn {
+  flex-grow: 1;
+  cursor: pointer;
+  /* padding-inline: clamp(1rem, 3vmin, 1.75rem); */
+  background-color: #87ac15;
+  color: white;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+  opacity: 0.5;
+  font-size: var(--fs-medium);
+}
